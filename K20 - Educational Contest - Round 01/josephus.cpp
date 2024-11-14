@@ -24,23 +24,28 @@ const ll INF = 1e18;
 const db PI = acos((db)-1);
 const int MAXN = 1e5 + 5;
 
-void solve() {
-   int n, k; cin>> n>> k;
-    int i=1, ans=0;
-    while(i<=n){
-        ans=(ans+k) %i;
+void solve()
+{
+    int n, k;
+    cin >> n >> k;
+    int i = 1, ans = 0;
+    while (i <= n)
+    {
+        ans = (ans + k) % i;
         i++;
     }
 
-    cout<<ans+1;
+    cout << ans + 1;
 }
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     int t = 1;
-    while (t--) {
+    while (t--)
+    {
         solve();
     }
     return 0;

@@ -13,25 +13,30 @@ vector<vector<bool>> visited;
 int dx[] = {0, 0, 1, -1};
 int dy[] = {1, -1, 0, 0};
 
-bool isValid(int x, int y) {
+bool isValid(int x, int y)
+{
     return x >= 0 && x < n && y >= 0 && y < m && grid[x][y] > 0 && !visited[x][y];
 }
 
-int bfs(int startX, int startY) {
+int bfs(int startX, int startY)
+{
     queue<pair<int, int>> q;
     q.push({startX, startY});
     visited[startX][startY] = true;
     int strength = 0;
 
-    while (!q.empty()) {
+    while (!q.empty())
+    {
         auto [x, y] = q.front();
         q.pop();
         strength += grid[x][y];
 
-        for (int i = 0; i < 4; ++i) {
+        for (int i = 0; i < 4; ++i)
+        {
             int newX = x + dx[i];
             int newY = y + dy[i];
-            if (isValid(newX, newY)) {
+            if (isValid(newX, newY))
+            {
                 q.push({newX, newY});
                 visited[newX][newY] = true;
             }
@@ -41,21 +46,27 @@ int bfs(int startX, int startY) {
     return strength;
 }
 
-int main() {
+int main()
+{
     cin >> n >> m;
     grid.resize(n, vector<int>(m));
     visited.resize(n, vector<bool>(m, false));
 
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < m; ++j) {
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < m; ++j)
+        {
             cin >> grid[i][j];
         }
     }
 
     int maxStrength = 0;
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < m; ++j) {
-            if (grid[i][j] > 0 && !visited[i][j]) {
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < m; ++j)
+        {
+            if (grid[i][j] > 0 && !visited[i][j])
+            {
                 maxStrength = max(maxStrength, bfs(i, j));
             }
         }

@@ -26,16 +26,19 @@ const int MAXN = 1e5 + 5;
 
 map<ll, ll> save;
 
-void solve() {
+void solve()
+{
     ll n;
     cin >> n;
 
     vector<ll> temp;
-    while(n--){
+    while (n--)
+    {
         ll x;
         cin >> x;
         save[x]++;
-        if(save[x] == 2) {
+        if (save[x] == 2)
+        {
             temp.pb(x);
             save[x] = 0;
         }
@@ -43,7 +46,8 @@ void solve() {
 
     sort(temp.rbegin(), temp.rend());
 
-    if (temp.size() < 2) {
+    if (temp.size() < 2)
+    {
         cout << 0 << endl;
         return;
     }
@@ -52,12 +56,14 @@ void solve() {
     cout << S << endl;
 }
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     int t = 1;
-    while (t--) {
+    while (t--)
+    {
         solve();
     }
     return 0;

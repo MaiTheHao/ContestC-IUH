@@ -50,10 +50,13 @@ void solve()
     for (ll r = row; r >= 0; r--)
     {
         for (ll c = 0; c <= col; c++)
-        {   
-            if(r > 0) dp[r - 1][c] = min(dp[r - 1][c], arr[r - 1][c] + dp[r][c]);
-            if(r > 0 && c < col) dp[r - 1][c + 1] = min(dp[r - 1][c + 1], arr[r - 1][c + 1] + dp[r][c]);
-            if(c < col) dp[r][c + 1] = min(dp[r][c + 1], arr[r][c + 1] + dp[r][c]);
+        {
+            if (r > 0)
+                dp[r - 1][c] = min(dp[r - 1][c], arr[r - 1][c] + dp[r][c]);
+            if (r > 0 && c < col)
+                dp[r - 1][c + 1] = min(dp[r - 1][c + 1], arr[r - 1][c + 1] + dp[r][c]);
+            if (c < col)
+                dp[r][c + 1] = min(dp[r][c + 1], arr[r][c + 1] + dp[r][c]);
         }
     }
 

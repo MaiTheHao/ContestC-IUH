@@ -24,32 +24,38 @@ const ll INF = 1e18;
 const db PI = acos((db)-1);
 const int MAXN = 1e5 + 5;
 
-void solve() {
+void solve()
+{
     ll n;
     cin >> n;
     vector<ll> a(n);
-    for (ll &x : a) cin >> x;
+    for (ll &x : a)
+        cin >> x;
 
     vector<ll> lHeights(n + 2), rHeights(n + 2);
-    for(ll i = 1; i <= n; i++){
+    for (ll i = 1; i <= n; i++)
+    {
         lHeights[i] = min({i, a[i - 1], lHeights[i - 1] + 1});
         rHeights[n + 1 - i] = min({i, a[n - i], rHeights[n + 2 - i] + 1});
     }
 
     ll maxHeight = 0;
-    for(ll i = 1; i <= n; i++){
+    for (ll i = 1; i <= n; i++)
+    {
         maxHeight = max(maxHeight, min(lHeights[i], rHeights[i]));
     }
 
     cout << maxHeight << endl;
 }
 
-int main() {
+int main()
+{
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
     int t = 1;
-    while (t--) {
+    while (t--)
+    {
         solve();
     }
     return 0;

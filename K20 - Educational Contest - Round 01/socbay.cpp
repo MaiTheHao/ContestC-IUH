@@ -26,21 +26,57 @@ const int MAXN = 1e5 + 5;
 
 void solve()
 {
-    ll n, q, l, r;
-    cin >> n >> q;
-    vector<ll> arr(n);
-    vector<ll> prefXOR(n + 1, 0);
+    ll n;
+    cin >> n;
+    vector<ll> a(n);
 
-    for (ll i = 0; i < n; ++i)
+    for (ll i = 0; i < n; i++)
+        cin >> a[i];
+
+    vector<ll> left(n, 1), right(n, 1);
+    stack<ll> st;
+
+    for (ll i = 0; i < n; i++)
     {
-        cin >> arr[i];
-        prefXOR[i + 1] = prefXOR[i] ^ arr[i];
+        while (!st.empty() && a[st.top()] <= a[i])
+        {
+            debug(st.top());
+            debug(a[st.top()]);
+            debug(a[i]);
+            left[i] += left[st.top()];
+            st.pop();
+        }
+
+        st.push(i);
     }
 
+    for (ll i = 0; i < n; i++) {
+        cout << left[i] << " ";
+    }
+    cout << endl;
+
+    while (!st.empty())
+        st.pop();
+
+    for (ll i = n - 1; i >= 0; i--)
+    {
+        while (!st.empty() && a[st.top()] <= a[i])
+        {
+            right[i] += right[st.top()];
+            st.pop();
+        }
+
+        st.push(i);
+    }
+
+    ll q;
+    cin >> q;
     while (q--)
     {
-        cin >> l >> r;
-        cout << (prefXOR[r] ^ prefXOR[l - 1]) << endl;
+        ll x;
+        cin >> x;
+        x--;
+        cout << right[x] + left[x] - 1 << endl;
     }
 }
 
