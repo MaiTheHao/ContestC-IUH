@@ -30,3 +30,9 @@ desktop.ini
 *.log
 *.sql
 *.sqlite
+
+#
+*.in
+*.out
+
+main.cpp

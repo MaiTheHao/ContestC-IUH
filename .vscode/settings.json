@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "*.html": "html",
+        "barrier": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "latch": "cpp",
+        "limits": "cpp",
+        "semaphore": "cpp",
+        "valarray": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp"
+    }
+}
