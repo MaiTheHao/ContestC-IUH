@@ -2,6 +2,7 @@
 /build/
 /bin/
 /obj/
+/development/
 
 # Ignore Visual Studio files
 *.suo
@@ -20,6 +21,7 @@ desktop.ini
 *.o
 *.obj
 *.exe
+*.js
 *.dll
 *.lib
 *.so
@@ -34,5 +36,3 @@ desktop.ini
 #
 *.in
 *.out
-
-main.cpp

@@ -9,6 +9,7 @@
         "semaphore": "cpp",
         "valarray": "cpp",
         "iostream": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "tuple": "cpp"
     }
 }
